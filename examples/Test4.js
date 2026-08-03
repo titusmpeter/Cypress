@@ -43,8 +43,6 @@ describe("Web elements", function () {
     
     //Radio buttons
     cy.get("input[value='radio2']").check().should("be.checked");
-
-
     
   });
 });
