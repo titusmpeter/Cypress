@@ -43,6 +43,23 @@ describe("Web elements", function () {
     
     //Radio buttons
     cy.get("input[value='radio2']").check().should("be.checked");
+   
+    //pop-ups
+    //cy auto-accepts alerts and pop-ups
+    cy.get("#alertbtn").click();
+    cy.get("input[id='confirmbtn']").click(); //different methods of acheiving the same goal
+    
+    //cy has the capability to listen for browser events e.g. window:alert
+    cy.on("window:alert", function(str)  { //trigger an alert evt from cy
+      expect(str).to.equal("Hello , share this practice page and share your knowledge");
+
+    });
+
+    cy.on("window:confirm", (_) =>  { //trigger a confirm evt from cy
+      expect(_).to.equal("Hello , Are you sure you want to confirm?");
+
+    });
+
     
   });
 });
