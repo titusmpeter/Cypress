@@ -6,7 +6,7 @@
 
 describe("Test Suite V" , ()=> {
 
-    it("Child Windows", () => {
+    it("Child Tabs", () => {
         cy.visit("https://rahulshettyacademy.com/automationpractise/#/");
 
         //remove target="_blank" attribute at runtime and invoke DOM - disables opening a link on a blank/new tab
