@@ -2,7 +2,7 @@
 //Cypress has the ability to manipulate DOM
 
 describe("Test Suite VI", () => {
-  it("Web Tables", () => {
+  it("Web Tables and mouse hover events", () => {
     cy.visit("https://rahulshettyacademy.com/automationpractise/#/");
 
     //finding the nth child - find the 2nd item in a row, iterate through row's 2nd item
@@ -21,5 +21,16 @@ describe("Test Suite VI", () => {
           });
       }
     });
+
+    //invoking jquery methods using cypress to trigger DOM events
+    //there is no direct mouse hover support in cypress, thus the use of jquery methods
+    //show method shld be applied on immediate parent of hidden element
+
+    //force click an inviscible element
+    cy.contains("Top").click({ force: true }); //pass argument inside click method to force click hidden elements
+
+    cy.get("div .mouse-hover-content").invoke("show"); //alternatively, invoke show method to reveal hidden element
+    cy.contains("Top").click(); //then click
+    cy.url().should("include", "top"); //validate URL contiains top
   });
 });
