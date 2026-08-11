@@ -28,9 +28,9 @@ describe("Test Suite VI", () => {
 
     //force click an inviscible element
     cy.contains("Top").click({ force: true }); //pass argument inside click method to force click hidden elements
-
     cy.get("div .mouse-hover-content").invoke("show"); //alternatively, invoke show method to reveal hidden element
     cy.contains("Top").click(); //then click
+
     cy.url().should("include", "top"); //validate URL contiains top
   });
 });
