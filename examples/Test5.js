@@ -21,7 +21,7 @@ describe("Test Suite V", () => {
                 }) */
 
       //any activity in the new domain has to  be within this function
-      //anything outside this function if directed to the original domain
+      //anything outside this function is directed to the original domain
       cy.get("#navbarSupportedContent a[href='about.html']").click();
       cy.get(".section-title h2").should(
         "contain",
